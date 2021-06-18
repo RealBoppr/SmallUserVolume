@@ -3,20 +3,21 @@ using MelonLoader;
 using UnityEngine;
 using UnityEngine.UI;
 
+[assembly: MelonInfo(typeof(SmallUserVolume.Main), "SmallUserVolume", "1.3", "Boppr")]
+[assembly: MelonGame("VRChat", "VRChat")]
+
+
 namespace SmallUserVolume
 {
-    public class Class : MelonMod
+    public class Main : MelonMod
     {
-        public override void OnApplicationStart()
-        {
-            MelonCoroutines.Start(CheckUIManager());
-        }
+        public override void OnApplicationStart() => MelonCoroutines.Start(CheckUIManager());
         private IEnumerator CheckUIManager()
         {
             while (VRCUiManager.prop_VRCUiManager_0 == null) { yield return null; }
-            OnUIManagerInit();
+            OnUIInit();
         }
-        public void OnUIManagerInit()
+        private void OnUIInit()
         {
             Transform UV = GameObject.Find("UserInterface/QuickMenu/UserInteractMenu/User Volume").transform;
             UV.FindChild("VolumeText").gameObject.SetActive(false);
