@@ -55,7 +55,6 @@ namespace SmallUserVolume
 
         TinyUserVolume:
             VD.gameObject.SetActive(false);
-
             VS.FindChild("Fill Area").FindChild("Fill").gameObject.SetActive(false);
             VS.FindChild("Background").gameObject.SetActive(false);
             VNT.localPosition = new Vector3(15f, VNT.localPosition.y, VNT.localPosition.z);
